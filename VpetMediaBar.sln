@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VpetMediaBar", "VpetMediaBar\VpetMediaBar.csproj", "{C4580790-6D27-4E6E-8C8B-54340BAF1F96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pre_test", "pre_test\pre_test.csproj", "{E362E2B8-57CB-45AD-8E28-516B5BDD0808}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4580790-6D27-4E6E-8C8B-54340BAF1F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4580790-6D27-4E6E-8C8B-54340BAF1F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4580790-6D27-4E6E-8C8B-54340BAF1F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4580790-6D27-4E6E-8C8B-54340BAF1F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E362E2B8-57CB-45AD-8E28-516B5BDD0808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E362E2B8-57CB-45AD-8E28-516B5BDD0808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E362E2B8-57CB-45AD-8E28-516B5BDD0808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E362E2B8-57CB-45AD-8E28-516B5BDD0808}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
