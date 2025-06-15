@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="VpetMediaBar.MediaBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
+             MinHeight="150" Width="480" Height="Auto"
+             Background="Transparent">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#22FFFFFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="42"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="21"
+                                Effect="{StaticResource DropShadow}"
+                                >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- 投影效果 -->
+        <DropShadowEffect x:Key="DropShadow" Color="Black" Opacity="0.2" BlurRadius="10" Direction="270" ShadowDepth="2"/>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border Background="#AAFFFFFF" CornerRadius="20" Padding="10" Effect="{StaticResource DropShadow}">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- 封面图 -->
+                <Grid Width="100" Height="100" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+                    <Ellipse Width="100" Height="100" Stroke="#33FFFFFF" StrokeThickness="3" >
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding CoverSource, RelativeSource={RelativeSource AncestorType=UserControl}}" Stretch="UniformToFill"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <!-- 可选旋转动画 -->
+                    <!--
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="CoverRotate" Angle="0" CenterX="50" CenterY="50"/>
+                    </Ellipse.RenderTransform>
+                    -->
+                </Grid>
+
+                <!-- 标题和副标题 -->
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="20,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Name="Title" Text="歌曲标题" FontSize="22" FontWeight="SemiBold" Foreground="#222"/>
+                    <TextBlock Name="Info" Text="副标题 / 艺术家" FontSize="14" Foreground="#666"/>
+                </StackPanel>
+
+                <!-- 播放控制按钮 -->
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,10,0,0">
+                    <Button Content="⏮"/>
+                    <Button Content="⏯"/>
+                    <Button Content="⏭"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
