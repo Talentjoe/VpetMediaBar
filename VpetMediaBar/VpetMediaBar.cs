@@ -10,7 +10,7 @@ public class VpetMediaBar : MainPlugin
 {
     public override string PluginName => "VpetMediaBar";
     private MenuItem DiyMenuItem;
-    MediaControlCore mediaControlCore = new MediaControlCore();
+    //MediaControlCore mediaControlCore = new MediaControlCore();
     private MediaBar mediaBar;
     
     public VpetMediaBar(IMainWindow mainWindow) : base(mainWindow)
@@ -42,7 +42,7 @@ public class VpetMediaBar : MainPlugin
     public override void LoadDIY()
     {
         mediaBar = new MediaBar(this);
-        mediaControlCore = new MediaControlCore();
+    //    mediaControlCore = new MediaControlCore();
         MW.Main.ToolBar.MenuDIY.Items.Add(DiyMenuItem);
     }
     

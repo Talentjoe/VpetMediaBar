@@ -1,16 +1,38 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Windows.Media;
-using Windows.Media.Control;
-using VpetMediaBar;
-
-
-public class Program
+﻿
+class Program
 {
-    
-    public static async Task Main()
+    static async Task Main()
     {
-        var a = new MediaControlCore();
+        using var server = new MediaClient();
 
-        while (true) ;
+        Console.WriteLine("Waiting for client to connect...");
+        await server.WaitForConnectionAsync();
+
+        Console.WriteLine("Client connected!");
+
+        var cts = new CancellationTokenSource();
+
+        var receiveTask = Task.Run(async () =>
+        {
+            while (!cts.IsCancellationRequested)
+            {
+                var msg = await server.ReceiveMessageAsync();
+                if (msg != null)
+                {
+                    Console.WriteLine("Received: " + msg);
+                    if (msg.Trim().Equals("STOP", StringComparison.OrdinalIgnoreCase))
+                    {
+                        cts.Cancel();
+                    }
+                    else
+                    {
+                        await server.SendMessageAsync("Echo: " + msg);
+                    }
+                }
+            }
+        });
+
+        await receiveTask;
+        Console.WriteLine("Server shutting down.");
     }
 }
