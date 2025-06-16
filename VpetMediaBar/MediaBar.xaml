@@ -54,7 +54,7 @@
 
                 <!-- 封面图 -->
                 <Grid Width="100" Height="100" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
-                    <Ellipse Width="100" Height="100" Stroke="#33FFFFFF" StrokeThickness="3" >
+                    <Ellipse Width="100" Height="100" Stroke="#33FFFFFF" StrokeThickness="3">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="{Binding CoverSource}" Stretch="UniformToFill"/> 
                         </Ellipse.Fill>

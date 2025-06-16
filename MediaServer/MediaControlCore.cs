@@ -54,6 +54,7 @@ public class MediaControlCore
     private async void UpdateSession(GlobalSystemMediaTransportControlsSessionManager sender, SessionsChangedEventArgs e)
     {
         var session = _transportControl.GetCurrentSession();
+        if (session == null) return;
         CurrentSession = session;
         session.MediaPropertiesChanged += UpdateMediaProperties;
         var mediaProperties = await session.TryGetMediaPropertiesAsync();

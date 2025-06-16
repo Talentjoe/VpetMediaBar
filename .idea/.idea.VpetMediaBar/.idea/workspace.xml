@@ -11,23 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/next-button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/next-button.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/pause-button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/pause-button.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/prev-button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/prev-button.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/start-button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/start-button.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaControlCore.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,9 +30,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6d/bfda989a/_EventSource_global__Windows_Foundation_TypedEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aa46ede081bf45839f9a84e7acce77ab559f0/73/c582b71f/Main.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/106ab35d796ed232414d7669a5935c4527413d95a912e21126dbc838816f4/FrameworkElement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,7 +71,6 @@
     "Attach to Process.48524:VPet-Simulator.Windows.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "XThreadsFramesViewSplitterKey": "0.49911818",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -185,7 +169,8 @@
       <workItem from="1749972962746" duration="1829000" />
       <workItem from="1749974813984" duration="1724000" />
       <workItem from="1750013498890" duration="8099000" />
-      <workItem from="1750024874756" duration="18103000" />
+      <workItem from="1750024874756" duration="19626000" />
+      <workItem from="1750096232208" duration="3529000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -211,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750021165850</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor MediaBar to Window, enhance media control functionality, and update UI elements">
+      <option name="closed" value="true" />
+      <created>1750056415457</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1750056415457</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +228,7 @@
     <MESSAGE value="initialize project structure with solution and configuration files" />
     <MESSAGE value="temp not working" />
     <MESSAGE value="temp" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp" />
+    <MESSAGE value="refactor MediaBar to Window, enhance media control functionality, and update UI elements" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor MediaBar to Window, enhance media control functionality, and update UI elements" />
   </component>
 </project>

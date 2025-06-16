@@ -22,8 +22,8 @@ class Program
             while (!cts.IsCancellationRequested)
             {
                 await Task.Delay(1000, cts.Token);
-                
-                         
+                server.SentStopAsync();
+
                 // var msg = await server.ReceiveMessageAsync();
                 // if (msg != null)
                 // {

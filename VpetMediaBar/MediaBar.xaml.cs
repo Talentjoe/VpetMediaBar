@@ -3,13 +3,14 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.ComponentModel;
 using System.IO;
+using System.Reflection;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using static MediaClient;
 
 namespace VpetMediaBar
 {
-    public partial class MediaBar : Window 
+    public partial class MediaBar : Window , INotifyPropertyChanged
     {
         MediaClient _client;
         VpetMediaBar _vpetMediaBar;
@@ -30,7 +31,15 @@ namespace VpetMediaBar
         public MediaBar(VpetMediaBar vpetMediaBar )
         {
             _vpetMediaBar = vpetMediaBar;
+            this.DataContext = this;
             InitializeComponent();
+            
+            string dllDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+            string fullPath = Path.Combine(dllDir, "MediaServer","MediaServer.exe");
+            MediaClient.StartServer(fullPath);
+
+            //MessageBox.Show("FullPath: " + fullPath, "Media Server Started", MessageBoxButton.OK, MessageBoxImage.Information);
+
             Init();
             
             // CoverSource = new ImageSourceConverter().ConvertFromString("cover.jpg") as ImageSource;
@@ -45,7 +54,6 @@ namespace VpetMediaBar
             _client.StartListeningAsync(cts.Token);
             
             _client.OnMediaInfoReceived += SetMediaInfo;
-            
         }
         
         public void SetMediaInfo(MediaInfo mediaInfo)
@@ -56,11 +64,12 @@ namespace VpetMediaBar
             Dispatcher.Invoke(() => { 
                     Title.Text = mediaInfo.Title.Replace("Title: ","");
                     Info.Text = mediaInfo.Artist.Replace("Artist: ","") +" / "+ mediaInfo.Album.Replace("Album: ","");
-                
-            if (mediaInfo.ThumbnailSize > 0)
-            {
-                SetCover(mediaInfo.ThumbnailBase64.Replace("Thumbnail Base64: ",""));
-            }}
+
+                    if (mediaInfo.ThumbnailSize > 0)
+                    {
+                        SetCover(mediaInfo.ThumbnailBase64.Replace("Thumbnail Base64: ", ""));
+                    }
+                }
             );
             
         }

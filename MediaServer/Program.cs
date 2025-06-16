@@ -1,19 +1,21 @@
-﻿
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.IO.Pipes;
-using System.Net.Mime;
 using Windows.Media.Control;
+using Windows.Storage.Streams;
 
 class Program
 {
     private static MediaControlCore mediaControl;
     private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertiesQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties>();
-    static void Main()
+
+    static async Task Main()
     {
         mediaControl = new MediaControlCore();
-        
-        using (var client = new NamedPipeClientStream(".", "audio_info", PipeDirection.InOut, PipeOptions.Asynchronous))
+        NamedPipeClientStream client = null;
+
+        try
         {
+            client = new NamedPipeClientStream(".", "audio_info", PipeDirection.InOut, PipeOptions.Asynchronous);
             client.Connect();
             Console.WriteLine("Client connected.");
 
@@ -24,101 +26,157 @@ class Program
             var readerTask = Task.Run(() => ReaderLoop(client, cancellationTokenSource), token);
 
             mediaControl.MediaPropertiesChanged += (props) =>
+            {
+                if (props != null)
                 {
-                    if (props != null)
-                    {
-                        mediaPropertiesQueue.Enqueue(props);
-                    } 
-                };
-            
-            mediaPropertiesQueue.Enqueue(mediaControl.GetCurrentMediaProperties());
-                
-            // 等待 reader 发出停止信号
-            Task.WaitAny(readerTask);
+                    mediaPropertiesQueue.Enqueue(props);
+                }
+            };
+
+            var initProps = mediaControl.GetCurrentMediaProperties();
+            if (initProps != null)
+                mediaPropertiesQueue.Enqueue(initProps);
+
+            await Task.WhenAny(readerTask);
             cancellationTokenSource.Cancel();
 
-            // 确保两个任务结束
-            Task.WaitAll(writerTask, readerTask);
+            await Task.WhenAll(writerTask, readerTask);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Unhandled exception: " + ex);
+        }
+        finally
+        {
+            client?.Dispose();
             Console.WriteLine("Client stopped.");
         }
     }
 
     static async Task WriterLoop(NamedPipeClientStream client, CancellationToken token)
     {
-        using (var writer = new StreamWriter(client) { AutoFlush = true })
+        try
         {
+            using var writer = new StreamWriter(client) { AutoFlush = true };
+
             while (!token.IsCancellationRequested)
             {
                 while (mediaPropertiesQueue.TryDequeue(out var props))
                 {
                     string message = $"Title: {props.Title}, Artist: {props.Artist}, Album: {props.AlbumTitle}";
-                    var thumbnail = props.Thumbnail;
-                    
-                    Console.WriteLine($"Sending message: {message}");
-                    
-                    if (thumbnail != null)
+
+                    if (props.Thumbnail != null)
                     {
-                        var thumbnailStream = await thumbnail.OpenReadAsync();
-                        if (thumbnailStream != null)
+                        try
                         {
-                            message += $", Thumbnail Size: {thumbnailStream.Size} bytes";
-                            using (var dataReader = new Windows.Storage.Streams.DataReader(thumbnailStream))
+                            var thumbnailStream = await props.Thumbnail.OpenReadAsync();
+                            if (thumbnailStream != null)
                             {
+                                message += $", Thumbnail Size: {thumbnailStream.Size} bytes";
+
+                                using var dataReader = new DataReader(thumbnailStream);
                                 uint size = (uint)thumbnailStream.Size;
+
                                 await dataReader.LoadAsync(size);
                                 byte[] buffer = new byte[size];
                                 dataReader.ReadBytes(buffer);
 
-                                // 将字节数组转换为 Base64 字符串
                                 string thumbnailBase64 = Convert.ToBase64String(buffer);
                                 message += $", Thumbnail Base64: {thumbnailBase64}";
                             }
-                            
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("[Thumbnail error] " + ex.Message);
                         }
                     }
-                    await writer.WriteLineAsync(message);
+
+                    Console.WriteLine("Sending: " + message);
+
+                    try
+                    {
+                        await writer.WriteLineAsync(message);
+                    }
+                    catch (ObjectDisposedException)
+                    {
+                        Console.WriteLine("Writer: Pipe closed.");
+                        return;
+                    }
                 }
+
                 await Task.Delay(500, token);
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[WriterLoop error] " + ex);
         }
     }
 
     static async Task ReaderLoop(NamedPipeClientStream client, CancellationTokenSource cancelSource)
     {
-        using (var reader = new StreamReader(client))
+        try
         {
+            using var reader = new StreamReader(client);
             while (!cancelSource.IsCancellationRequested)
             {
-                string? line = await reader.ReadLineAsync();
-                if (line != null)
+                string? line;
+                try
                 {
-                    if (line.Trim().Equals("STOP", StringComparison.OrdinalIgnoreCase))
+                    line = await reader.ReadLineAsync();
+                }
+                catch (ObjectDisposedException)
+                {
+                    Console.WriteLine("Reader: Pipe closed.");
+                    break;
+                }
+
+                if (line == null) break;
+
+                Console.WriteLine("Received: " + line);
+
+                var trimmed = line.Trim().ToUpperInvariant();
+
+                if (trimmed == "STOP")
+                {
+                    cancelSource.Cancel();
+                    break;
+                }
+
+                try
+                {
+                    switch (trimmed)
                     {
-                        cancelSource.Cancel();
-                        break;
+                        case "START_STOP_PLAY":
+                            var status = mediaControl.CurrentSession?.GetPlaybackInfo()?.PlaybackStatus;
+                            if (status == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Paused)
+                                await mediaControl.CurrentSession?.TryPlayAsync();
+                            else
+                                await mediaControl.CurrentSession?.TryPauseAsync();
+                            break;
+
+                        case "NEXT":
+                            await mediaControl.CurrentSession?.TrySkipNextAsync();
+                            break;
+
+                        case "PREVIOUS":
+                            await mediaControl.CurrentSession?.TrySkipPreviousAsync();
+                            break;
                     }
-                    
-                    if (line.Trim().Equals("START_STOP_PLAY", StringComparison.OrdinalIgnoreCase))
-                    {
-                        var playbackStatus = mediaControl.CurrentSession?.GetPlaybackInfo()?.PlaybackStatus;
-                        
-                        if (playbackStatus == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Paused)
-                            mediaControl.CurrentSession?.TryPlayAsync();
-                        else
-                             mediaControl.CurrentSession?.TryPauseAsync();
-                    }
-                    if (line.Trim().Equals("NEXT", StringComparison.OrdinalIgnoreCase))
-                    {
-                        mediaControl.CurrentSession?.TrySkipNextAsync();
-                    }
-                    if (line.Trim().Equals("PREVIOUS", StringComparison.OrdinalIgnoreCase))
-                    {
-                        mediaControl.CurrentSession?.TrySkipPreviousAsync();
-                    }
-                    
-                    Console.WriteLine("Received: " + line);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Playback control error: " + ex.Message);
                 }
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[ReaderLoop error] " + ex);
+        }
+        finally
+        {
+            cancelSource.Cancel();
         }
     }
 }
