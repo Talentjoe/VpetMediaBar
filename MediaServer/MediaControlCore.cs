@@ -57,9 +57,16 @@ public class MediaControlCore
         if (session == null) return;
         CurrentSession = session;
         session.MediaPropertiesChanged += UpdateMediaProperties;
-        var mediaProperties = await session.TryGetMediaPropertiesAsync();
-        UpdateMediaProperty(mediaProperties);
-        Console.WriteLine("session changed");
+        try
+        {
+            var mediaProperties = await session.TryGetMediaPropertiesAsync();
+            UpdateMediaProperty(mediaProperties);
+            Console.WriteLine("session changed");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error retrieving media properties: " + ex.Message);
+        }
     }
     
     private void UpdateMediaProperty( GlobalSystemMediaTransportControlsSessionMediaProperties? mediaProperties)

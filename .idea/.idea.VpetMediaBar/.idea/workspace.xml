@@ -13,9 +13,7 @@
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Talentjoe&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Talentjoe/VpetMediaBar.git&quot;,
+    &quot;accountId&quot;: &quot;f82511ba-ad2c-4e59-933c-6b9c670b5b3b&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6d/bfda989a/_EventSource_global__Windows_Foundation_TypedEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aa46ede081bf45839f9a84e7acce77ab559f0/73/c582b71f/Main.cs" root0="SKIP_HIGHLIGHTING" />
@@ -39,6 +49,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7db16fd646825e69fd070ec98242df6e9f15a6a223fd244152e43ec399d7/IMainWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ac32f819d6853e0a6eda168c52b7f38eef9ae75936fb85d96a15c39d115245/Dispatcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/acc3e6e5f85e7174c16f6fd86bfc988df4815a736791e6f3d736ed79b8436e/CancellationTokenSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,7 +71,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Project.ClientTest.executor": "Run",
-    ".NET Project.MediaServer.executor": "Run",
+    ".NET Project.MediaServer.executor": "Debug",
     ".NET Project.pre_test.executor": "Run",
     "Attach to Process.19284:VPet-Simulator.Windows.executor": "Debug",
     "Attach to Process.34356:VPet-Simulator.Windows.executor": "Debug",
@@ -81,7 +92,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.MediaServer">
+  <component name="RunManager" selected=".NET Project.pre_test">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -170,7 +181,8 @@
       <workItem from="1749974813984" duration="1724000" />
       <workItem from="1750013498890" duration="8099000" />
       <workItem from="1750024874756" duration="19626000" />
-      <workItem from="1750096232208" duration="3529000" />
+      <workItem from="1750096232208" duration="3881000" />
+      <workItem from="1750100690178" duration="684000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -204,7 +216,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750056415457</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="version 0.0">
+      <option name="closed" value="true" />
+      <created>1750099966770</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1750099966770</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +249,7 @@
     <MESSAGE value="temp not working" />
     <MESSAGE value="temp" />
     <MESSAGE value="refactor MediaBar to Window, enhance media control functionality, and update UI elements" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor MediaBar to Window, enhance media control functionality, and update UI elements" />
+    <MESSAGE value="version 0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 0.0" />
   </component>
 </project>

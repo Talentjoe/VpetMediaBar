@@ -17,30 +17,33 @@ class Program
 
         var cts = new CancellationTokenSource();
 
-        var receiveTask = Task.Run(async () =>
+        server.StartListeningAsync();
+        
+        server.OnMediaInfoReceived += (mediaInfo) =>
         {
-            while (!cts.IsCancellationRequested)
+            if (mediaInfo == null)
+                return;
+
+            Console.WriteLine($"Title: {mediaInfo.Title}");
+            Console.WriteLine($"Artist: {mediaInfo.Artist}");
+            Console.WriteLine($"Album: {mediaInfo.Album}");
+            Console.WriteLine($"Thumbnail Size: {mediaInfo.ThumbnailSize}");
+            Console.WriteLine($"Thumbnail Base64: {mediaInfo.ThumbnailBase64}");
+        };
+
+        while (true)
+        {
+            var a = Console.ReadLine();
+            if(a == "exit") 
             {
-                await Task.Delay(1000, cts.Token);
-                server.SentStopAsync();
-
-                // var msg = await server.ReceiveMessageAsync();
-                // if (msg != null)
-                // {
-                //     Console.WriteLine("Received: " + msg);
-                //     if (msg.Trim().Equals("STOP", StringComparison.OrdinalIgnoreCase))
-                //     {
-                //         cts.Cancel();
-                //     }
-                //     else
-                //     {
-                //         await server.SendMessageAsync("Echo: " + msg);
-                //     }
-                // }
+                cts.Cancel();
+                break;
             }
-        });
-
-        await receiveTask;
+            else
+            {
+                Console.WriteLine("Unknown command. Type 'exit' to quit or 'stop' to stop the server.");
+            }
+        }
         Console.WriteLine("Server shutting down.");
     }
 }
