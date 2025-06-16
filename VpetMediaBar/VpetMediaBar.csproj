@@ -12,7 +12,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Resource Include="MediaBarAssets\*.png" />
+    </ItemGroup>
+    <ItemGroup>
       <PackageReference Include="VPet-Simulator.Windows.Interface" Version="1.1.0.50" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MediaClient\MediaClient.csproj" />
     </ItemGroup>
 
 </Project>

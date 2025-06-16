@@ -9,12 +9,18 @@ using Windows.Media.Control;
 public class MediaControlCore
 {
     private GlobalSystemMediaTransportControlsSessionManager _transportControl;
-    private  GlobalSystemMediaTransportControlsSessionMediaProperties _currentMediaProperties;
-    public GlobalSystemMediaTransportControlsSessionMediaProperties CurrentMediaProperties 
-    {
-        get => _currentMediaProperties;
-    }
+    public GlobalSystemMediaTransportControlsSession CurrentSession;
     public Action<GlobalSystemMediaTransportControlsSessionMediaProperties> MediaPropertiesChanged;
+    public GlobalSystemMediaTransportControlsSessionMediaProperties GetCurrentMediaProperties()
+    {
+        var session = _transportControl.GetCurrentSession();
+        if (session == null)
+        {
+            Console.WriteLine("No media session is currently active.");
+            return null;
+        }
+        return session.TryGetMediaPropertiesAsync().GetAwaiter().GetResult();
+    }
     
     public MediaControlCore()
     {
@@ -24,37 +30,46 @@ public class MediaControlCore
     private async void Init()
     {
         _transportControl = await GlobalSystemMediaTransportControlsSessionManager.RequestAsync();
-        _transportControl.SessionsChanged += UpdateSession;
         if (_transportControl != null)
         {
+            _transportControl.SessionsChanged += UpdateSession;
             var session = _transportControl.GetCurrentSession();
+            CurrentSession = session;
             if (session == null)
             {
                 Console.WriteLine("No media session is currently active.");
                 return;
             }
             session.MediaPropertiesChanged += UpdateMediaProperties;
+            var mediaProperties = await session.TryGetMediaPropertiesAsync();
+            UpdateMediaProperty(mediaProperties);
         }
     }
     
     private async void UpdateMediaProperties(GlobalSystemMediaTransportControlsSession sender, MediaPropertiesChangedEventArgs e)
     {
         var mediaProperties = await sender.TryGetMediaPropertiesAsync();
-        _currentMediaProperties = mediaProperties;
-        MediaPropertiesChanged?.Invoke(mediaProperties);
-        Console.WriteLine("media properties changed");
-        Console.WriteLine($"Title: {mediaProperties.Title}, Artist: {mediaProperties.Artist}, Album: {mediaProperties.AlbumTitle}");
-        //var a = mediaProperties.Thumbnail;
-        //var value = await a.OpenReadAsync();
-        
+        UpdateMediaProperty(mediaProperties);
     }
     private async void UpdateSession(GlobalSystemMediaTransportControlsSessionManager sender, SessionsChangedEventArgs e)
     {
         var session = _transportControl.GetCurrentSession();
+        CurrentSession = session;
         session.MediaPropertiesChanged += UpdateMediaProperties;
         var mediaProperties = await session.TryGetMediaPropertiesAsync();
-        _currentMediaProperties = mediaProperties;
+        UpdateMediaProperty(mediaProperties);
         Console.WriteLine("session changed");
+    }
+    
+    private void UpdateMediaProperty( GlobalSystemMediaTransportControlsSessionMediaProperties? mediaProperties)
+    {
+        if (mediaProperties != null)
+        {
+            MediaPropertiesChanged?.Invoke(mediaProperties);
+            Console.WriteLine("Initial media properties:");
+            Console.WriteLine($"Title: {mediaProperties.Title}, Artist: {mediaProperties.Artist}, Album: {mediaProperties.AlbumTitle}");
+
+        }
     }
 
 }

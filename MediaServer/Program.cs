@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Concurrent;
 using System.IO.Pipes;
+using System.Net.Mime;
 using Windows.Media.Control;
 
 class Program
@@ -29,6 +30,8 @@ class Program
                         mediaPropertiesQueue.Enqueue(props);
                     } 
                 };
+            
+            mediaPropertiesQueue.Enqueue(mediaControl.GetCurrentMediaProperties());
                 
             // 等待 reader 发出停止信号
             Task.WaitAny(readerTask);
@@ -48,7 +51,32 @@ class Program
             {
                 while (mediaPropertiesQueue.TryDequeue(out var props))
                 {
-                    await writer.WriteLineAsync(props.Title ?? "No Title");
+                    string message = $"Title: {props.Title}, Artist: {props.Artist}, Album: {props.AlbumTitle}";
+                    var thumbnail = props.Thumbnail;
+                    
+                    Console.WriteLine($"Sending message: {message}");
+                    
+                    if (thumbnail != null)
+                    {
+                        var thumbnailStream = await thumbnail.OpenReadAsync();
+                        if (thumbnailStream != null)
+                        {
+                            message += $", Thumbnail Size: {thumbnailStream.Size} bytes";
+                            using (var dataReader = new Windows.Storage.Streams.DataReader(thumbnailStream))
+                            {
+                                uint size = (uint)thumbnailStream.Size;
+                                await dataReader.LoadAsync(size);
+                                byte[] buffer = new byte[size];
+                                dataReader.ReadBytes(buffer);
+
+                                // 将字节数组转换为 Base64 字符串
+                                string thumbnailBase64 = Convert.ToBase64String(buffer);
+                                message += $", Thumbnail Base64: {thumbnailBase64}";
+                            }
+                            
+                        }
+                    }
+                    await writer.WriteLineAsync(message);
                 }
                 await Task.Delay(500, token);
             }
@@ -68,6 +96,24 @@ class Program
                     {
                         cancelSource.Cancel();
                         break;
+                    }
+                    
+                    if (line.Trim().Equals("START_STOP_PLAY", StringComparison.OrdinalIgnoreCase))
+                    {
+                        var playbackStatus = mediaControl.CurrentSession?.GetPlaybackInfo()?.PlaybackStatus;
+                        
+                        if (playbackStatus == GlobalSystemMediaTransportControlsSessionPlaybackStatus.Paused)
+                            mediaControl.CurrentSession?.TryPlayAsync();
+                        else
+                             mediaControl.CurrentSession?.TryPauseAsync();
+                    }
+                    if (line.Trim().Equals("NEXT", StringComparison.OrdinalIgnoreCase))
+                    {
+                        mediaControl.CurrentSession?.TrySkipNextAsync();
+                    }
+                    if (line.Trim().Equals("PREVIOUS", StringComparison.OrdinalIgnoreCase))
+                    {
+                        mediaControl.CurrentSession?.TrySkipPreviousAsync();
                     }
                     
                     Console.WriteLine("Received: " + line);

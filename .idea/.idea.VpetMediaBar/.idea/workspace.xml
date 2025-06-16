@@ -11,18 +11,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ClientTest/ClientTest.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ClientTest/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MediaServer/MediaServer.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/next-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/next-button.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/pause-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/pause-button.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/prev-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/prev-button.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/start-button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBarAssets/start-button.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar.sln" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaControlCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaControlCore.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pre_test/pre_test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/pre_test.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +42,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6d/bfda989a/_EventSource_global__Windows_Foundation_TypedEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aa46ede081bf45839f9a84e7acce77ab559f0/73/c582b71f/Main.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/106ab35d796ed232414d7669a5935c4527413d95a912e21126dbc838816f4/FrameworkElement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2c8e7ca976f350cba9836d5565dac56b11e0b56656fa786460eb1395857a6fa/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4bda76b5cc453e1edf5d5c754c4a8215edbd3d3e4f80706dcf4f52a4f68979/EventRoute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/528231ff9f911f33068aaa888c96c7cc92cabbf0bc1f31386d66e14174ecae/Grid.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7db16fd646825e69fd070ec98242df6e9f15a6a223fd244152e43ec399d7/IMainWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ac32f819d6853e0a6eda168c52b7f38eef9ae75936fb85d96a15c39d115245/Dispatcher.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/acc3e6e5f85e7174c16f6fd86bfc988df4815a736791e6f3d736ed79b8436e/CancellationTokenSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -57,10 +75,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Project.ClientTest.executor": "Run",
-    ".NET Project.MediaServer.executor": "Debug",
+    ".NET Project.MediaServer.executor": "Run",
     ".NET Project.pre_test.executor": "Run",
+    "Attach to Process.19284:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.34356:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.34652:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.38688:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.39404:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.47300:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.48524:VPet-Simulator.Windows.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "XThreadsFramesViewSplitterKey": "0.49911818",
     "git-widget-placeholder": "master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -71,7 +97,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.pre_test">
+  <component name="RunManager" selected=".NET Project.MediaServer">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -158,7 +184,8 @@
       <workItem from="1749969962892" duration="2639000" />
       <workItem from="1749972962746" duration="1829000" />
       <workItem from="1749974813984" duration="1724000" />
-      <workItem from="1750013498890" duration="4207000" />
+      <workItem from="1750013498890" duration="8099000" />
+      <workItem from="1750024874756" duration="18103000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -176,7 +203,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749970600424</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="temp">
+      <option name="closed" value="true" />
+      <created>1750021165850</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750021165850</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +234,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="initialize project structure with solution and configuration files" />
     <MESSAGE value="temp not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp not working" />
+    <MESSAGE value="temp" />
+    <option name="LAST_COMMIT_MESSAGE" value="temp" />
   </component>
 </project>

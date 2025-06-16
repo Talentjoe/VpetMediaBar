@@ -11,39 +11,54 @@ public class VpetMediaBar : MainPlugin
     public override string PluginName => "VpetMediaBar";
     private MenuItem DiyMenuItem;
     //MediaControlCore mediaControlCore = new MediaControlCore();
-    private MediaBar mediaBar;
+    public MediaBar MediaBar;
     
     public VpetMediaBar(IMainWindow mainWindow) : base(mainWindow)
-    {
-    }
+    { }
 
     
     public async override void LoadPlugin()
     {
+        Version osVersion = Environment.OSVersion.Version;
+        if (osVersion.Major < 10)
+            return;
+        
         DiyMenuItem = new MenuItem()
         {
             Header = "Vpet Media Bar",
             IsCheckable = true,
             IsChecked = true
         };
-        DiyMenuItem.Click += (s, e) =>
+        DiyMenuItem.Click += (sender, args) =>
         {
             if (DiyMenuItem.IsChecked)
             {
-                mediaBar.Visibility = Visibility.Visible;
+                MediaBar.Visibility = Visibility.Visible;
             }
             else
             {
-                mediaBar.Visibility = Visibility.Collapsed;
+                MediaBar.Visibility = Visibility.Collapsed;
             }
         };
+        
     }
     
     public override void LoadDIY()
     {
-        mediaBar = new MediaBar(this);
-    //    mediaControlCore = new MediaControlCore();
+        Version osVersion = Environment.OSVersion.Version;
+        if (osVersion.Major < 10)
+        {
+            MessageBox.Show("VpetMediaBar requires Windows 10 or later.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+        }
+        MediaBar = new MediaBar(this);
+        MediaBar.Show();
+    //  mediaControlCore = new MediaControlCore();
         MW.Main.ToolBar.MenuDIY.Items.Add(DiyMenuItem);
     }
-    
+
+    public override void EndGame()
+    {
+        MediaBar.End();
+    }
 }

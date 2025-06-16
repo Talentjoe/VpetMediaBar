@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="238 417 260 260" xmlns="http://www.w3.org/2000/svg">
+ <g transform="matrix(.86233 0 0 .86613 -438.88 126.11)">
+
+  <path transform="matrix(2.2899 0 0 2.371 -167.75 -1329.6)"
+        d="m543.12 765.88c0 32.659-27.504 59.134-61.431 59.134s-61.431-26.475-61.431-59.134 27.504-59.134 61.431-59.134 61.431 26.475 61.431 59.134z"
+        fill="#666" stroke="#fff" stroke-width="7.393"/>
+
+  <polygon
+          points="890,420 890,564 1000,497.5"
+          fill="#fff" stroke="#fff" stroke-linecap="square" stroke-width="3.7134"/>
+ </g>
+</svg>
