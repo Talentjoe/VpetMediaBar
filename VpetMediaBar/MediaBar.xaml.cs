@@ -6,13 +6,13 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using VPet_Simulator.Windows.Interface;
 using static MediaClient;
 
 namespace VpetMediaBar
 {
     public partial class MediaBar : Window , INotifyPropertyChanged
     {
-        MediaClient _client;
         VpetMediaBar _vpetMediaBar;
         public CancellationTokenSource cts;
         
@@ -48,12 +48,14 @@ namespace VpetMediaBar
         public async void Init()
         {
             Resources = Application.Current.Resources;
-            _client = new MediaClient();
-            await _client.WaitForConnectionAsync();
-            cts = new CancellationTokenSource();
-            _client.StartListeningAsync(cts.Token);
+            _vpetMediaBar._client = new MediaClient();
             
-            _client.OnMediaInfoReceived += SetMediaInfo;
+            _vpetMediaBar.MW.DynamicResources.Add("MediaInfo",_vpetMediaBar._client );
+            await  _vpetMediaBar._client.WaitForConnectionAsync();
+            cts = new CancellationTokenSource();
+             _vpetMediaBar._client.StartListeningAsync(cts.Token);
+            
+             _vpetMediaBar._client.OnMediaInfoReceived += SetMediaInfo;
         }
         
         public void SetMediaInfo(MediaInfo mediaInfo)
@@ -116,23 +118,23 @@ namespace VpetMediaBar
 
         private async void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            await _client.SentNextAsync();
+            await  _vpetMediaBar._client.SentNextAsync();
         }
         
         private async void PrevButton_Click(object sender, RoutedEventArgs e)
         {
-            await _client.SentPrevAsync();
+            await  _vpetMediaBar._client.SentPrevAsync();
         }
         
         private async void StopButton_Click(object sender, RoutedEventArgs e)
         {
-            await _client.SentStopOrStartAsync();
+            await  _vpetMediaBar._client.SentStopOrStartAsync();
         }
 
         public void End()
         {
-            _client?.SentStopAsync();
-            _client?.Dispose();
+             _vpetMediaBar._client?.SentStopAsync();
+             _vpetMediaBar._client?.Dispose();
             cts?.Cancel();
             this.Close();
         }

@@ -5,13 +5,13 @@ using VPet_Simulator.Windows.Interface;
 
 namespace VpetMediaBar;
 
-
-public class VpetMediaBar : MainPlugin
+public class VpetMediaBar : MainPlugin 
 {
     public override string PluginName => "VpetMediaBar";
     private MenuItem DiyMenuItem;
     //MediaControlCore mediaControlCore = new MediaControlCore();
     public MediaBar MediaBar;
+    public MediaClient _client;
     
     public VpetMediaBar(IMainWindow mainWindow) : base(mainWindow)
     { }
