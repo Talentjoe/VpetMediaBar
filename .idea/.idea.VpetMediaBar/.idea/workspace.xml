@@ -12,9 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +52,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Coding/VpetMediaBar/VpetMediaBar/MediaBar.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Coding/VpetMediaBar/VpetMediaBar/VpetMediaBar.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -68,30 +70,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.ClientTest.executor": "Run",
-    ".NET Project.MediaServer.executor": "Debug",
-    ".NET Project.pre_test.executor": "Run",
-    "Attach to Process.19284:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.34356:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.34652:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.38688:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.39404:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.47300:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.48524:VPet-Simulator.Windows.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Console",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.ClientTest.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.MediaServer.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Project.pre_test.executor&quot;: &quot;Run&quot;,
+    &quot;Attach to Process.19284:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.34356:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.34652:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.38688:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.39404:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.47300:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.48524:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Console&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Project.pre_test">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -182,7 +184,11 @@
       <workItem from="1750013498890" duration="8099000" />
       <workItem from="1750024874756" duration="19626000" />
       <workItem from="1750096232208" duration="3881000" />
-      <workItem from="1750100690178" duration="684000" />
+      <workItem from="1750100690178" duration="1512000" />
+      <workItem from="1750102949207" duration="6000" />
+      <workItem from="1750189311929" duration="280000" />
+      <workItem from="1750195343021" duration="134000" />
+      <workItem from="1750198474815" duration="293000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -224,7 +230,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750099966770</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix bug">
+      <option name="closed" value="true" />
+      <created>1750101450378</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750101450378</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add cross plugin support">
+      <option name="closed" value="true" />
+      <created>1750198763359</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750198763359</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +272,8 @@
     <MESSAGE value="temp" />
     <MESSAGE value="refactor MediaBar to Window, enhance media control functionality, and update UI elements" />
     <MESSAGE value="version 0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="version 0.0" />
+    <MESSAGE value="fix bug" />
+    <MESSAGE value="add cross plugin support" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cross plugin support" />
   </component>
 </project>
