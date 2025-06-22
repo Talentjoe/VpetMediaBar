@@ -1,8 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System.IO.Pipes;
-using Windows.Devices.Pwm;
-using Windows.Media;
+using Windows.Data.Json;
 using Windows.Media.Control;
 
 
@@ -76,7 +74,7 @@ public class MediaControlCore
             MediaPropertiesChanged?.Invoke(mediaProperties);
             Console.WriteLine("Initial media properties:");
             Console.WriteLine($"Title: {mediaProperties.Title}, Artist: {mediaProperties.Artist}, Album: {mediaProperties.AlbumTitle}");
-
+            Console.WriteLine( mediaProperties);
         }
     }
 

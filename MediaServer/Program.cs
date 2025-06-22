@@ -1,7 +1,9 @@
 ﻿using System.Collections.Concurrent;
 using System.IO.Pipes;
+using System.Text.Json;
 using Windows.Media.Control;
 using Windows.Storage.Streams;
+using MediaServer;
 
 class Program
 {
@@ -16,7 +18,7 @@ class Program
         try
         {
             client = new NamedPipeClientStream(".", "audio_info", PipeDirection.InOut, PipeOptions.Asynchronous);
-            client.Connect();
+            await client.ConnectAsync();
             Console.WriteLine("Client connected.");
 
             var cancellationTokenSource = new CancellationTokenSource();
@@ -63,33 +65,8 @@ class Program
             {
                 while (mediaPropertiesQueue.TryDequeue(out var props))
                 {
-                    string message = $"Title: {props.Title}, Artist: {props.Artist}, Album: {props.AlbumTitle}";
-
-                    if (props.Thumbnail != null)
-                    {
-                        try
-                        {
-                            var thumbnailStream = await props.Thumbnail.OpenReadAsync();
-                            if (thumbnailStream != null)
-                            {
-                                message += $", Thumbnail Size: {thumbnailStream.Size} bytes";
-
-                                using var dataReader = new DataReader(thumbnailStream);
-                                uint size = (uint)thumbnailStream.Size;
-
-                                await dataReader.LoadAsync(size);
-                                byte[] buffer = new byte[size];
-                                dataReader.ReadBytes(buffer);
-
-                                string thumbnailBase64 = Convert.ToBase64String(buffer);
-                                message += $", Thumbnail Base64: {thumbnailBase64}";
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine("[Thumbnail error] " + ex.Message);
-                        }
-                    }
+                    var mediaData = new MediaPropertiesSerializableData(props,mediaControl.CurrentSession.SourceAppUserModelId);
+                    var message = JsonSerializer.Serialize(mediaData);
 
                     Console.WriteLine("Sending: " + message);
 
