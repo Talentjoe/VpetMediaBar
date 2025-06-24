@@ -3,7 +3,8 @@ using System.IO.Pipes;
 using System.Net.Mime;
 using System.Text;
 using System.Text.Json;
-using MediaServer;
+
+namespace MediaClient;
 
 public class MediaClient : IDisposable
 {

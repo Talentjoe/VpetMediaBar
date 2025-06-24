@@ -11,22 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableDataGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataInterface/DataInterface.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MediaClient/IMediaPropertiesSerializableData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MediaClient/MediaPropertiesSerializableData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableDataGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableDataGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/MediaServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaServer.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +75,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -96,35 +92,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.ClientTest.executor": "Run",
-    ".NET Project.MediaServer.executor": "Run",
-    ".NET Project.pre_test.executor": "Debug",
-    "Attach to Process.19284:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.34356:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.34652:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.38168:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.38688:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.39172:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.39404:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.4708:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.47300:VPet-Simulator.Windows.executor": "Debug",
-    "Attach to Process.48524:VPet-Simulator.Windows.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "test",
-    "last_opened_file_path": "D:/Coding/VpetMediaBar/MediaServer/MediaPropertiesSerializableData.cs",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Console",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.ClientTest.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.MediaServer.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.pre_test.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.19284:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.34356:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.34652:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.38168:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.38688:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.39172:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.39404:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.4708:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.47300:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Process.48524:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Coding/VpetMediaBar/MediaServer/MediaPropertiesSerializableData.cs&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Console&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected=".NET Project.MediaServer">
+}</component>
+  <component name="RunManager" selected=".NET Project.pre_test">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -226,6 +222,7 @@
       <workItem from="1750577880879" duration="1407000" />
       <workItem from="1750626897110" duration="633000" />
       <workItem from="1750747968814" duration="3639000" />
+      <workItem from="1750752545884" duration="754000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -328,38 +325,25 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs</url>
           <line>81</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetMediaInfo'">
+          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetCover'">
             <startOffsets>
-              <option value="2605" />
+              <option value="2712" />
             </startOffsets>
             <endOffsets>
-              <option value="2627" />
+              <option value="2713" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MediaClient/MediaClient.cs</url>
-          <line>68</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\MediaClient\MediaClient.cs" containingFunctionPresentation="Method 'StartListeningAsync'">
-            <startOffsets>
-              <option value="2402" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2441" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs</url>
           <line>85</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetMediaInfo'">
+          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetCover'">
             <startOffsets>
-              <option value="2717" />
+              <option value="2826" />
             </startOffsets>
             <endOffsets>
-              <option value="2718" />
+              <option value="2833" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />

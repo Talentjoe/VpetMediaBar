@@ -11,7 +11,7 @@ public class VpetMediaBar : MainPlugin
     private MenuItem DiyMenuItem;
     //MediaControlCore mediaControlCore = new MediaControlCore();
     public MediaBar MediaBar;
-    public MediaClient _client;
+    public MediaClient.MediaClient _client;
     
     public VpetMediaBar(IMainWindow mainWindow) : base(mainWindow)
     { }

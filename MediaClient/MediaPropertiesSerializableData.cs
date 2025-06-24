@@ -1,4 +1,4 @@
-﻿namespace MediaServer;
+﻿namespace MediaClient;
 
 public class MediaPropertiesSerializableData
 {
@@ -15,7 +15,7 @@ public class MediaPropertiesSerializableData
 
     public bool HaveThumbnail { get; init;  }
     public string ThumbnailBase64 { get; init;  }
-    
-    public MediaPropertiesSerializableData()
-    { }
+
+    public MediaPropertiesSerializableData() { }
+
 }

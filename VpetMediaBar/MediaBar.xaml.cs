@@ -7,9 +7,8 @@ using System.Reflection;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using MediaServer;
+using MediaClient;
 using VPet_Simulator.Windows.Interface;
-using static MediaClient;
 
 namespace VpetMediaBar
 {
@@ -38,7 +37,7 @@ namespace VpetMediaBar
             
             string dllDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
             string fullPath = Path.Combine(dllDir, "MediaServer","MediaServer.exe");
-            MediaClient.StartServer(fullPath);
+            MediaClient.MediaClient.StartServer(fullPath);
 
             //MessageBox.Show("FullPath: " + fullPath, "Media Server Started", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -50,7 +49,7 @@ namespace VpetMediaBar
         public async void Init()
         {
             Resources = Application.Current.Resources;
-            _vpetMediaBar._client = new MediaClient();
+            _vpetMediaBar._client = new MediaClient.MediaClient();
             
             _vpetMediaBar.MW.DynamicResources.Add("MediaInfo",_vpetMediaBar._client );
             await  _vpetMediaBar._client.WaitForConnectionAsync();

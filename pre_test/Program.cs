@@ -6,7 +6,7 @@ class Program
     [SuppressMessage("ReSharper.DPA", "DPA0002: Excessive memory allocations in SOH", MessageId = "type: ReadWriteValueTaskSource; size: 1018MB")]
     static async Task Main()
     {
-        using var server = new MediaClient();
+        using var server = new MediaClient.MediaClient();
 
        // MediaClient.StartServer(@"D:\Coding\VpetMediaBar\MediaServer\bin\Release\net8.0-windows10.0.19041.0\MediaServer.exe");
 
