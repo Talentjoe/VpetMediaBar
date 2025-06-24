@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using MediaServer;
 using VPet_Simulator.Windows.Interface;
 using static MediaClient;
 
@@ -58,18 +60,19 @@ namespace VpetMediaBar
              _vpetMediaBar._client.OnMediaInfoReceived += SetMediaInfo;
         }
         
-        public void SetMediaInfo(MediaInfo mediaInfo)
+        public void SetMediaInfo(MediaPropertiesSerializableData mediaInfo)
         {
             if (mediaInfo == null)
                 return;
-
+            
             Dispatcher.Invoke(() => { 
-                    Title.Text = mediaInfo.Title.Replace("Title: ","");
-                    Info.Text = mediaInfo.Artist.Replace("Artist: ","") +" / "+ mediaInfo.Album.Replace("Album: ","");
+                    Title.Text = mediaInfo.Title;
+                    Info.Text = mediaInfo.Artist+" / "+ mediaInfo.AlbumArtist;
+                    Program.Text = mediaInfo.SourceUserModeId;
 
-                    if (mediaInfo.ThumbnailSize > 0)
+                    if (mediaInfo.ThumbnailBase64 != "" )
                     {
-                        SetCover(mediaInfo.ThumbnailBase64.Replace("Thumbnail Base64: ", ""));
+                        SetCover(mediaInfo.ThumbnailBase64);
                     }
                 }
             );

@@ -65,7 +65,7 @@ class Program
             {
                 while (mediaPropertiesQueue.TryDequeue(out var props))
                 {
-                    var mediaData = new MediaPropertiesSerializableData(props,mediaControl.CurrentSession.SourceAppUserModelId);
+                    var mediaData = new MediaPropertiesSerializableDataGenerator(props,mediaControl.CurrentSession.SourceAppUserModelId);
                     var message = JsonSerializer.Serialize(mediaData);
 
                     Console.WriteLine("Sending: " + message);

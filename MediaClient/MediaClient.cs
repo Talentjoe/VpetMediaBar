@@ -2,6 +2,8 @@
 using System.IO.Pipes;
 using System.Net.Mime;
 using System.Text;
+using System.Text.Json;
+using MediaServer;
 
 public class MediaClient : IDisposable
 {
@@ -36,18 +38,8 @@ public class MediaClient : IDisposable
 
         return await _reader.ReadLineAsync();
     }
-    
-    public class MediaInfo
-    {
-        public string Title { get; set; }
-        public string Artist { get; set; }
-        public string Album { get; set; }
-        public long ThumbnailSize { get; set; }
-        public string ThumbnailBase64 { get; set; }
-        
-    }
 
-    public event Action<MediaInfo> OnMediaInfoReceived;
+    public event Action<MediaPropertiesSerializableData> OnMediaInfoReceived;
     
     public async Task StartListeningAsync(CancellationToken cancellationToken = default)
     {
@@ -64,33 +56,17 @@ public class MediaClient : IDisposable
             var message = await ReceiveMessageAsync(cancellationToken);
             if (message == null) continue;
 
-            var parts = message.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length < 3)
+            var options = new JsonSerializerOptions
             {
-                var mediaInfo = new MediaInfo
-                {
-                    Title = parts[0].Trim(),
-                    Artist = parts[1].Trim(),
-                    Album = parts[2].Trim(),
-                    ThumbnailSize = 0,
-                    ThumbnailBase64 = ""
-                };
-                OnMediaInfoReceived?.Invoke(mediaInfo);
-            }
-            else
+                PropertyNameCaseInsensitive = true
+            };
+            MediaPropertiesSerializableData? mediaData = JsonSerializer.Deserialize<MediaPropertiesSerializableData>(message,options);
+            if (mediaData == null)
             {
-                var mediaInfo = new MediaInfo
-                {
-                    Title = parts[0].Trim(),
-                    Artist = parts[1].Trim(),
-                    Album = parts[2].Trim(),
-                    ThumbnailSize = 1,
-                    ThumbnailBase64 = parts.Length > 4 ? parts[4].Trim() : string.Empty
-                };
-
-                OnMediaInfoReceived?.Invoke(mediaInfo);
-                
+                Console.WriteLine("Received invalid media data.");
+                continue;
             }
+            OnMediaInfoReceived?.Invoke(mediaData);
 
         }
     }

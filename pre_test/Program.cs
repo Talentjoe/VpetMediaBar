@@ -26,8 +26,7 @@ class Program
 
             Console.WriteLine($"Title: {mediaInfo.Title}");
             Console.WriteLine($"Artist: {mediaInfo.Artist}");
-            Console.WriteLine($"Album: {mediaInfo.Album}");
-            Console.WriteLine($"Thumbnail Size: {mediaInfo.ThumbnailSize}");
+            Console.WriteLine($"Album: {mediaInfo.AlbumTitle}");
             Console.WriteLine($"Thumbnail Base64: {mediaInfo.ThumbnailBase64}");
         };
 
