@@ -11,18 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DataInterface/DataInterface.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MediaClient/IMediaPropertiesSerializableData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MediaClient/MediaPropertiesSerializableData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableDataGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableDataGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/MediaServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaServer.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/VpetMediaBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +65,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -222,7 +212,8 @@
       <workItem from="1750577880879" duration="1407000" />
       <workItem from="1750626897110" duration="633000" />
       <workItem from="1750747968814" duration="3639000" />
-      <workItem from="1750752545884" duration="754000" />
+      <workItem from="1750752545884" duration="1448000" />
+      <workItem from="1750754009496" duration="42000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -288,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750626921770</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add DataInterface project and refactor media properties handling">
+      <option name="closed" value="true" />
+      <created>1750753356255</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750753356255</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +316,8 @@
     <MESSAGE value="fix bug" />
     <MESSAGE value="add cross plugin support" />
     <MESSAGE value="Refactor code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor code" />
+    <MESSAGE value="Add DataInterface project and refactor media properties handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add DataInterface project and refactor media properties handling" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -327,10 +327,10 @@
           <line>81</line>
           <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetCover'">
             <startOffsets>
-              <option value="2712" />
+              <option value="2709" />
             </startOffsets>
             <endOffsets>
-              <option value="2713" />
+              <option value="2710" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
@@ -340,10 +340,10 @@
           <line>85</line>
           <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetCover'">
             <startOffsets>
-              <option value="2826" />
+              <option value="2823" />
             </startOffsets>
             <endOffsets>
-              <option value="2833" />
+              <option value="2830" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />

@@ -66,7 +66,7 @@ namespace VpetMediaBar
             
             Dispatcher.Invoke(() => { 
                     Title.Text = mediaInfo.Title;
-                    Info.Text = mediaInfo.Artist+" / "+ mediaInfo.AlbumArtist;
+                    Info.Text = mediaInfo.Subtitle+" / "+ mediaInfo.Artist;
                     Program.Text = mediaInfo.SourceUserModeId;
 
                     if (mediaInfo.ThumbnailBase64 != "" )
