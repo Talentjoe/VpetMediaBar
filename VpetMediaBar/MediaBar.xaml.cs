@@ -35,9 +35,7 @@ namespace VpetMediaBar
             this.DataContext = this;
             InitializeComponent();
             
-            string dllDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
-            string fullPath = Path.Combine(dllDir, "MediaServer","MediaServer.exe");
-            MediaClient.MediaClient.StartServer(fullPath);
+            //MediaClient.MediaClient.StartServer(fullPath);
 
             //MessageBox.Show("FullPath: " + fullPath, "Media Server Started", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -48,8 +46,10 @@ namespace VpetMediaBar
 
         public async void Init()
         {
+            string dllDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+            string fullPath = Path.Combine(dllDir, "MediaServer","MediaServer.exe");
             Resources = Application.Current.Resources;
-            _vpetMediaBar._client = new MediaClient.MediaClient();
+            _vpetMediaBar._client = new MediaClient.MediaClient(fullPath);
             
             _vpetMediaBar.MW.DynamicResources.Add("MediaInfo",_vpetMediaBar._client );
             await  _vpetMediaBar._client.WaitForConnectionAsync();

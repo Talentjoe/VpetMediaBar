@@ -10,14 +10,14 @@ class Program
     private static MediaControlCore mediaControl;
     private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertiesQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties>();
 
-    static async Task Main()
+    static async Task Main(string[] arg)
     {
         mediaControl = new MediaControlCore();
         NamedPipeClientStream client = null;
 
         try
         {
-            client = new NamedPipeClientStream(".", "audio_info", PipeDirection.InOut, PipeOptions.Asynchronous);
+            client = new NamedPipeClientStream(".", arg[0], PipeDirection.InOut, PipeOptions.Asynchronous);
             await client.ConnectAsync();
             Console.WriteLine("Client connected.");
 
@@ -68,7 +68,7 @@ class Program
                     var mediaData = new MediaPropertiesSerializableDataGenerator(props,mediaControl.CurrentSession.SourceAppUserModelId);
                     var message = JsonSerializer.Serialize(mediaData);
 
-                    Console.WriteLine("Sending: " + message);
+                   Console.WriteLine("Sending... ");
 
                     try
                     {

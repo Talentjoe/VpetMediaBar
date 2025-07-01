@@ -15,7 +15,14 @@ public class MediaClient : IDisposable
     private bool _isConnected = false;
     private readonly string _pipeName;
 
-    public MediaClient(string pipeName = "audio_info")
+    public MediaClient(string path)
+    {
+        var pipeName=StartServer(path).GetAwaiter().GetResult();
+        _pipeName = pipeName;
+        _pipeStream = new NamedPipeServerStream(_pipeName, PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
+    }
+    
+    public MediaClient(string pipeName, int mod)
     {
         _pipeName = pipeName;
         _pipeStream = new NamedPipeServerStream(_pipeName, PipeDirection.InOut, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
@@ -88,7 +95,7 @@ public class MediaClient : IDisposable
         try { _pipeStream?.Dispose(); } catch { }
     }
 
-    public static async void StartServer(String path)
+    private async Task<String> StartServer(String path)
     {
         if (!Directory.Exists(path))
         {
@@ -96,26 +103,31 @@ public class MediaClient : IDisposable
         }
         try
         {
+            var arguments = "m_info_" + Random.Shared.Next().ToString();
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
                 FileName = path,
                 UseShellExecute = false,
-                CreateNoWindow = true
+                CreateNoWindow = true,
+                Arguments = arguments,
             };
             
             Process process = Process.Start(startInfo);
             if (process == null)
             {
                 Console.WriteLine("Failed to start process.");
-                return;
+                return "";
             }
             Console.WriteLine($"启动成功: {path}");
+            return arguments;
             
         }
         catch (Exception ex)
         {
             Console.WriteLine("Error: " + ex.Message);
         }
+
+        return "";
     }
     
     public async Task SentStopOrStartAsync(CancellationToken cancellationToken = default)

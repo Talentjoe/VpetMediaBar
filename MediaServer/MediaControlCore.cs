@@ -9,6 +9,9 @@ public class MediaControlCore
     private GlobalSystemMediaTransportControlsSessionManager _transportControl;
     public GlobalSystemMediaTransportControlsSession CurrentSession;
     public Action<GlobalSystemMediaTransportControlsSessionMediaProperties> MediaPropertiesChanged;
+    public Action<GlobalSystemMediaTransportControlsSessionPlaybackInfo> PlaybackInfoChanged;
+    
+
     public GlobalSystemMediaTransportControlsSessionMediaProperties GetCurrentMediaProperties()
     {
         var session = _transportControl.GetCurrentSession();
@@ -49,12 +52,42 @@ public class MediaControlCore
         var mediaProperties = await sender.TryGetMediaPropertiesAsync();
         UpdateMediaProperty(mediaProperties);
     }
+    private void UpdateMediaProperty( GlobalSystemMediaTransportControlsSessionMediaProperties? mediaProperties)
+    {
+        if (mediaProperties != null)
+        {
+            MediaPropertiesChanged?.Invoke(mediaProperties);
+            Console.WriteLine("Initial media properties:");
+            Console.WriteLine($"Title: {mediaProperties.Title}, Artist: {mediaProperties.Artist}, Album: {mediaProperties.AlbumTitle}");
+            //Console.WriteLine( mediaProperties);
+        }
+    }
+
+    private async void UpdatePlaybackInfos(GlobalSystemMediaTransportControlsSession sender, PlaybackInfoChangedEventArgs e)
+    {
+        var playbackInfo =  sender.GetPlaybackInfo();
+        UpdatePlayBackInfo(playbackInfo);
+    }    
+    private void UpdatePlayBackInfo( GlobalSystemMediaTransportControlsSessionPlaybackInfo? playBackInfo)
+    {
+        if (playBackInfo != null)
+        {
+            PlaybackInfoChanged?.Invoke(playBackInfo);
+            Console.WriteLine("Play Back Info:");
+            Console.WriteLine($"Playback Status: {playBackInfo.PlaybackStatus}, Rate: {playBackInfo.PlaybackRate}, Type: {playBackInfo.PlaybackType}");
+            //Console.WriteLine( mediaProperties);
+        }
+    }
+    
     private async void UpdateSession(GlobalSystemMediaTransportControlsSessionManager sender, SessionsChangedEventArgs e)
     {
         var session = _transportControl.GetCurrentSession();
         if (session == null) return;
         CurrentSession = session;
+        session.MediaPropertiesChanged -= UpdateMediaProperties;
         session.MediaPropertiesChanged += UpdateMediaProperties;
+        session.PlaybackInfoChanged -= UpdatePlaybackInfos;
+        session.PlaybackInfoChanged += UpdatePlaybackInfos;
         try
         {
             var mediaProperties = await session.TryGetMediaPropertiesAsync();
@@ -67,15 +100,5 @@ public class MediaControlCore
         }
     }
     
-    private void UpdateMediaProperty( GlobalSystemMediaTransportControlsSessionMediaProperties? mediaProperties)
-    {
-        if (mediaProperties != null)
-        {
-            MediaPropertiesChanged?.Invoke(mediaProperties);
-            Console.WriteLine("Initial media properties:");
-            Console.WriteLine($"Title: {mediaProperties.Title}, Artist: {mediaProperties.Artist}, Album: {mediaProperties.AlbumTitle}");
-            Console.WriteLine( mediaProperties);
-        }
-    }
 
 }

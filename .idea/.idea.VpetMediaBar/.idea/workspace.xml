@@ -12,7 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +47,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/29/3003a484/GlobalSystemMediaTransportControlsSessionPlaybackI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6d/bfda989a/_EventSource_global__Windows_Foundation_TypedEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6f/dff91e6b/IGlobalSystemMediaTransportControlsSessionMediaPro.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,7 +70,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -82,34 +87,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.ClientTest.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.MediaServer.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.pre_test.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.19284:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.34356:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.34652:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.38168:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.38688:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.39172:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.39404:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.4708:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.47300:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.48524:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Coding/VpetMediaBar/MediaServer/MediaPropertiesSerializableData.cs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Console&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.ClientTest.executor": "Run",
+    ".NET Project.MediaServer.executor": "Run",
+    ".NET Project.pre_test.executor": "Run",
+    "Attach to Process.19284:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.34356:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.34652:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.38168:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.38688:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.39172:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.39404:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.4708:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.47300:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.48524:VPet-Simulator.Windows.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Coding/VpetMediaBar/MediaServer/MediaPropertiesSerializableData.cs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Console",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.pre_test">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -148,9 +153,9 @@
       </method>
     </configuration>
     <configuration name="MediaServer" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/MediaServer/bin/Release/net8.0-windows10.0.19041.0/MediaServer.exe" />
+      <option name="PROGRAM_PARAMETERS" value="test1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MediaServer/bin/Release/net8.0-windows10.0.19041.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -160,7 +165,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value="net8.0-windows10.0.19041.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -183,6 +188,12 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Project.ClientTest" />
+      <item itemvalue=".NET Project.MediaClient" />
+      <item itemvalue=".NET Project.MediaServer" />
+      <item itemvalue=".NET Project.pre_test" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -213,7 +224,9 @@
       <workItem from="1750626897110" duration="633000" />
       <workItem from="1750747968814" duration="3639000" />
       <workItem from="1750752545884" duration="1448000" />
-      <workItem from="1750754009496" duration="42000" />
+      <workItem from="1750754009496" duration="59000" />
+      <workItem from="1750754359235" duration="9000" />
+      <workItem from="1751362729200" duration="5270000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -287,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750753356255</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix typo">
+      <option name="closed" value="true" />
+      <created>1750754063330</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1750754063330</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,36 +338,37 @@
     <MESSAGE value="add cross plugin support" />
     <MESSAGE value="Refactor code" />
     <MESSAGE value="Add DataInterface project and refactor media properties handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add DataInterface project and refactor media properties handling" />
+    <MESSAGE value="fix typo" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix typo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs</url>
-          <line>81</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetCover'">
+          <url>file://$PROJECT_DIR$/pre_test/Program.cs</url>
+          <line>26</line>
+          <properties documentPath="D:\Coding\VpetMediaBar\pre_test\Program.cs" containingFunctionPresentation="Lambda expression inside Method 'Main'">
             <startOffsets>
-              <option value="2709" />
+              <option value="829" />
             </startOffsets>
             <endOffsets>
-              <option value="2710" />
+              <option value="876" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs</url>
-          <line>85</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetCover'">
+          <url>file://$PROJECT_DIR$/MediaServer/MediaControlCore.cs</url>
+          <line>83</line>
+          <properties documentPath="D:\Coding\VpetMediaBar\MediaServer\MediaControlCore.cs" containingFunctionPresentation="Method 'UpdateSession'">
             <startOffsets>
-              <option value="2823" />
+              <option value="3304" />
             </startOffsets>
             <endOffsets>
-              <option value="2830" />
+              <option value="3356" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
