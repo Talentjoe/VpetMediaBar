@@ -1,18 +1,15 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using MediaClient;
-using VPet_Simulator.Windows.Interface;
+using MediaClientDataInterFace;
 
 namespace VpetMediaBar
 {
-    public partial class MediaBar : Window , INotifyPropertyChanged
+    public partial class MediaBar : INotifyPropertyChanged
     {
         VpetMediaBar _vpetMediaBar;
         public CancellationTokenSource cts;

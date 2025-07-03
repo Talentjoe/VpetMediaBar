@@ -10,6 +10,7 @@ public class MediaControlCore
     public GlobalSystemMediaTransportControlsSession CurrentSession;
     public Action<GlobalSystemMediaTransportControlsSessionMediaProperties> MediaPropertiesChanged;
     public Action<GlobalSystemMediaTransportControlsSessionPlaybackInfo> PlaybackInfoChanged;
+    public Action<GlobalSystemMediaTransportControlsSessionTimelineProperties> TimelinePropertiesChanged;
     
 
     public GlobalSystemMediaTransportControlsSessionMediaProperties GetCurrentMediaProperties()
@@ -41,13 +42,13 @@ public class MediaControlCore
                 Console.WriteLine("No media session is currently active.");
                 return;
             }
-            session.MediaPropertiesChanged += UpdateMediaProperties;
+            session.MediaPropertiesChanged += UpdateMediaPropertiesSub;
             var mediaProperties = await session.TryGetMediaPropertiesAsync();
             UpdateMediaProperty(mediaProperties);
         }
     }
     
-    private async void UpdateMediaProperties(GlobalSystemMediaTransportControlsSession sender, MediaPropertiesChangedEventArgs e)
+    private async void UpdateMediaPropertiesSub(GlobalSystemMediaTransportControlsSession sender, MediaPropertiesChangedEventArgs e)
     {
         var mediaProperties = await sender.TryGetMediaPropertiesAsync();
         UpdateMediaProperty(mediaProperties);
@@ -63,7 +64,7 @@ public class MediaControlCore
         }
     }
 
-    private async void UpdatePlaybackInfos(GlobalSystemMediaTransportControlsSession sender, PlaybackInfoChangedEventArgs e)
+    private async void UpdatePlaybackInfosSub(GlobalSystemMediaTransportControlsSession sender, PlaybackInfoChangedEventArgs e)
     {
         var playbackInfo =  sender.GetPlaybackInfo();
         UpdatePlayBackInfo(playbackInfo);
@@ -75,7 +76,23 @@ public class MediaControlCore
             PlaybackInfoChanged?.Invoke(playBackInfo);
             Console.WriteLine("Play Back Info:");
             Console.WriteLine($"Playback Status: {playBackInfo.PlaybackStatus}, Rate: {playBackInfo.PlaybackRate}, Type: {playBackInfo.PlaybackType}");
-            //Console.WriteLine( mediaProperties);
+
+        }
+    }
+    
+    private async void UpdateTimelinePropertiesSub(GlobalSystemMediaTransportControlsSession sender, TimelinePropertiesChangedEventArgs e)
+    {
+        var timelineProperties = sender.GetTimelineProperties();
+        UpdateTimelineProperties(timelineProperties);
+    }
+    
+    private void UpdateTimelineProperties(GlobalSystemMediaTransportControlsSessionTimelineProperties? timelineProperties)
+    {
+        if (timelineProperties != null)
+        {
+            TimelinePropertiesChanged?.Invoke(timelineProperties);
+            Console.WriteLine("Timeline Properties:");
+            Console.WriteLine($"Start Time: {timelineProperties.StartTime}, End Time: {timelineProperties.EndTime}, Position: {timelineProperties.Position}");
         }
     }
     
@@ -84,10 +101,12 @@ public class MediaControlCore
         var session = _transportControl.GetCurrentSession();
         if (session == null) return;
         CurrentSession = session;
-        session.MediaPropertiesChanged -= UpdateMediaProperties;
-        session.MediaPropertiesChanged += UpdateMediaProperties;
-        session.PlaybackInfoChanged -= UpdatePlaybackInfos;
-        session.PlaybackInfoChanged += UpdatePlaybackInfos;
+        session.MediaPropertiesChanged -= UpdateMediaPropertiesSub;
+        session.MediaPropertiesChanged += UpdateMediaPropertiesSub;
+        session.PlaybackInfoChanged -= UpdatePlaybackInfosSub;
+        session.PlaybackInfoChanged += UpdatePlaybackInfosSub;
+        session.TimelinePropertiesChanged -= UpdateTimelinePropertiesSub;
+        session.TimelinePropertiesChanged += UpdateTimelinePropertiesSub;
         try
         {
             var mediaProperties = await session.TryGetMediaPropertiesAsync();

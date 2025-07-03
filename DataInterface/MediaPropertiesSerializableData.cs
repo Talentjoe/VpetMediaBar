@@ -1,6 +1,6 @@
-﻿namespace DataInterface;
+﻿namespace MediaClientDataInterFace;
 
-public interface MediaPropertiesSerializableData
+public class MediaPropertiesSerializableData
 {
     public string SourceUserModeId { get; init; }
     public string Title { get; init;  }
@@ -15,5 +15,7 @@ public interface MediaPropertiesSerializableData
 
     public bool HaveThumbnail { get; init;  }
     public string ThumbnailBase64 { get; init;  }
+    
+    public MediaPropertiesSerializableData() { }
     
 }

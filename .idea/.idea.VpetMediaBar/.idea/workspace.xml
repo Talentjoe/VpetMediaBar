@@ -11,12 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DataInterface/PlayBackInfoSerializableData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MediaServer/PlayBackInfoSerializableDataGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaClient/IMediaPropertiesSerializableData.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaClient/MediaPropertiesSerializableData.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableDataGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaPropertiesSerializableDataGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar.sln" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,13 +54,15 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/29/3003a484/GlobalSystemMediaTransportControlsSessionPlaybackI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/44/a67ba733/MediaPlaybackAutoRepeatMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6d/bfda989a/_EventSource_global__Windows_Foundation_TypedEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6f/dff91e6b/IGlobalSystemMediaTransportControlsSessionMediaPro.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/78/44dd61c3/MediaPlaybackType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/85/33b15b4c/GlobalSystemMediaTransportControlsSessionPlaybackS.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/85/386a78d9/GlobalSystemMediaTransportControlsSession.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/a6/8e111a11/PlaybackInfoChangedEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/a6/8e111a11/PlaybackInfoChangedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/a8/a86884ea/GlobalSystemMediaTransportControlsSessionPlaybackC.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/f8/78beaa6b/GlobalSystemMediaTransportControlsSessionMediaProp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aa46ede081bf45839f9a84e7acce77ab559f0/73/c582b71f/Main.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e703623710cc408eaac0f2c6feb0a00c81230/b6/d3455283/IWinRTObject.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,7 +79,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DataInterface/PlayBackInfoSerializableData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -90,8 +100,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Project.ClientTest.executor": "Run",
-    ".NET Project.MediaServer.executor": "Run",
-    ".NET Project.pre_test.executor": "Run",
+    ".NET Project.MediaServer.executor": "Debug",
+    ".NET Project.pre_test.executor": "Debug",
     "Attach to Process.19284:VPet-Simulator.Windows.executor": "Debug",
     "Attach to Process.34356:VPet-Simulator.Windows.executor": "Debug",
     "Attach to Process.34652:VPet-Simulator.Windows.executor": "Debug",
@@ -105,7 +115,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Coding/VpetMediaBar/MediaServer/MediaPropertiesSerializableData.cs",
+    "last_opened_file_path": "D:/Coding/VpetMediaBar/DataInterface/DataInterface.csproj",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,7 +125,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.pre_test">
+  <component name="RunManager" selected=".NET Project.MediaServer">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -227,6 +237,10 @@
       <workItem from="1750754009496" duration="59000" />
       <workItem from="1750754359235" duration="9000" />
       <workItem from="1751362729200" duration="5270000" />
+      <workItem from="1751379960822" duration="24000" />
+      <workItem from="1751418273211" duration="7000" />
+      <workItem from="1751466585842" duration="611000" />
+      <workItem from="1751539248491" duration="2845000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -308,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750754063330</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Refactor MediaClient to start server with path and update media properties handling">
+      <option name="closed" value="true" />
+      <created>1751379979408</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1751379979408</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,38 +361,7 @@
     <MESSAGE value="Refactor code" />
     <MESSAGE value="Add DataInterface project and refactor media properties handling" />
     <MESSAGE value="fix typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix typo" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/pre_test/Program.cs</url>
-          <line>26</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\pre_test\Program.cs" containingFunctionPresentation="Lambda expression inside Method 'Main'">
-            <startOffsets>
-              <option value="829" />
-            </startOffsets>
-            <endOffsets>
-              <option value="876" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MediaServer/MediaControlCore.cs</url>
-          <line>83</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\MediaServer\MediaControlCore.cs" containingFunctionPresentation="Method 'UpdateSession'">
-            <startOffsets>
-              <option value="3304" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3356" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Refactor MediaClient to start server asynchronously and update media properties handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor MediaClient to start server asynchronously and update media properties handling" />
   </component>
 </project>
