@@ -2,7 +2,7 @@
 using System.IO.Pipes;
 using System.Net.Mime;
 using System.Text;
-using System.Text.Json;
+using Newtonsoft.Json;
 using MediaClientDataInterFace;
 
 namespace MediaClient;
@@ -65,17 +65,22 @@ public class MediaClient : IDisposable
             var message = await ReceiveMessageAsync(cancellationToken);
             if (message == null) continue;
 
-            var options = new JsonSerializerOptions
+            try
             {
-                PropertyNameCaseInsensitive = true
-            };
-            MediaPropertiesSerializableData? mediaData = JsonSerializer.Deserialize<MediaPropertiesSerializableData>(message,options);
-            if (mediaData == null)
-            {
-                Console.WriteLine("Received invalid media data.");
-                continue;
+                MediaPropertiesSerializableData? mediaData =
+                    JsonConvert.DeserializeObject<MediaPropertiesSerializableData>(message);
+                if (mediaData == null)
+                {
+                    Console.Write("Received invalid media data.");
+                    continue;
+                }
+                OnMediaInfoReceived?.Invoke(mediaData);
+
             }
-            OnMediaInfoReceived?.Invoke(mediaData);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
     }

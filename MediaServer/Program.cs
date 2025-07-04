@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.IO.Pipes;
-using System.Text.Json;
+using Newtonsoft.Json;
 using Windows.Media.Control;
 using Windows.Storage.Streams;
 using MediaServer;
@@ -66,7 +66,10 @@ class Program
                 while (mediaPropertiesQueue.TryDequeue(out var props))
                 {
                     var mediaData = new MediaPropertiesSerializableDataGenerator(props,mediaControl.CurrentSession.SourceAppUserModelId);
-                    var message = JsonSerializer.Serialize(mediaData);
+                    var message = JsonConvert.SerializeObject(mediaData, Formatting.Indented);
+                    
+                    message = message.Replace("\r", "");
+                    message = message.Replace("\n", "");
 
                    Console.WriteLine("Sending... ");
 
