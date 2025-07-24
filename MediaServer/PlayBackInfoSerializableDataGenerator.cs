@@ -5,7 +5,7 @@ namespace MediaServer;
 
 public class PlayBackInfoSerializableDataGenerator : PlayBackInfoSerializableData
 {
-    PlayBackInfoSerializableDataGenerator(GlobalSystemMediaTransportControlsSessionPlaybackInfo playbackInfo)
+    public PlayBackInfoSerializableDataGenerator(GlobalSystemMediaTransportControlsSessionPlaybackInfo playbackInfo)
     {
         var autoRepeatMode =
             playbackInfo.AutoRepeatMode.GetValueOrDefault(Windows.Media.MediaPlaybackAutoRepeatMode.None);

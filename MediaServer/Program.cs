@@ -2,30 +2,40 @@
 using System.IO.Pipes;
 using Newtonsoft.Json;
 using Windows.Media.Control;
-using Windows.Storage.Streams;
 using MediaServer;
 
 class Program
 {
     private static MediaControlCore mediaControl;
     private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertiesQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties>();
+    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionPlaybackInfo> playbackQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionPlaybackInfo>();
+    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionTimelineProperties> timelinePropertiesQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionTimelineProperties>();
 
     static async Task Main(string[] arg)
     {
         mediaControl = new MediaControlCore();
-        NamedPipeClientStream client = null;
+        
+        var controlStream = new NamedPipeServerStream(arg[0]+"_control", PipeDirection.In, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
+        var mediaPropertiesStream = new NamedPipeServerStream(arg[0]+"_media_properties", PipeDirection.Out, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
+        var playbackInfoStream = new NamedPipeServerStream(arg[0]+"_playback_info", PipeDirection.Out, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
+        var timelinePropertiesStream = new NamedPipeServerStream(arg[0]+"_timeline_properties", PipeDirection.Out, 1, PipeTransmissionMode.Message, PipeOptions.Asynchronous);
 
         try
         {
-            client = new NamedPipeClientStream(".", arg[0], PipeDirection.InOut, PipeOptions.Asynchronous);
-            await client.ConnectAsync();
+            await controlStream.WaitForConnectionAsync();
+            await mediaPropertiesStream.WaitForConnectionAsync();
+            await playbackInfoStream.WaitForConnectionAsync();
+            await timelinePropertiesStream.WaitForConnectionAsync();
+            
             Console.WriteLine("Client connected.");
 
             var cancellationTokenSource = new CancellationTokenSource();
             var token = cancellationTokenSource.Token;
 
-            var writerTask = Task.Run(() => WriterLoop(client, token), token);
-            var readerTask = Task.Run(() => ReaderLoop(client, cancellationTokenSource), token);
+            var controlStreamTask = Task.Run(() => ReaderLoop(controlStream, cancellationTokenSource), token);
+            var mediaPropertiesTask = Task.Run(() => MediaPropertiesWriterLoop(mediaPropertiesStream, token), token);
+            var playbackInfoTask = Task.Run(() => PlaybackInfoWriterLoop(playbackInfoStream, token), token);
+            var timelinePropertiesTask = Task.Run(() => TimelinePropertiesWriterLoop(timelinePropertiesStream, token), token);
 
             mediaControl.MediaPropertiesChanged += (props) =>
             {
@@ -34,15 +44,35 @@ class Program
                     mediaPropertiesQueue.Enqueue(props);
                 }
             };
+            
+            mediaControl.PlaybackInfoChanged += (props) =>
+            {
+                if (props != null)
+                {
+                    playbackQueue.Enqueue(props);
+                }
+            };
+            
+            mediaControl.TimelinePropertiesChanged += (props) =>
+            {
+                if (props != null)
+                {
+                    timelinePropertiesQueue.Enqueue(props);
+                }
+            };
 
             var initProps = mediaControl.GetCurrentMediaProperties();
-            if (initProps != null)
-                mediaPropertiesQueue.Enqueue(initProps);
+            mediaPropertiesQueue.Enqueue(initProps);
+            var initPlaybackInfo = mediaControl.CurrentSession.GetPlaybackInfo();
+            playbackQueue.Enqueue(initPlaybackInfo);
+            var initTimelineProps = mediaControl.CurrentSession.GetTimelineProperties();
+            timelinePropertiesQueue.Enqueue(initTimelineProps);
+            
 
-            await Task.WhenAny(readerTask);
-            cancellationTokenSource.Cancel();
+            await Task.WhenAny(controlStreamTask);
+            await cancellationTokenSource.CancelAsync();
 
-            await Task.WhenAll(writerTask, readerTask);
+            await Task.WhenAll(controlStreamTask, playbackInfoTask, timelinePropertiesTask, mediaPropertiesTask);
         }
         catch (Exception ex)
         {
@@ -50,11 +80,104 @@ class Program
         }
         finally
         {
-            client?.Dispose();
+            await controlStream.DisposeAsync();
+            await mediaPropertiesStream.DisposeAsync();
+            await playbackInfoStream.DisposeAsync();
+            await timelinePropertiesStream.DisposeAsync();
             Console.WriteLine("Client stopped.");
         }
     }
 
+    static async Task DeserializeAnyAndSent<T>(T data, StreamWriter streamWriter)
+    {
+        
+        var message = JsonConvert.SerializeObject(data, Formatting.Indented);
+                    
+        message = message.Replace("\r", "");
+        message = message.Replace("\n", "");
+
+        Console.WriteLine("Sending... ");
+
+        try
+        {
+            await streamWriter.WriteLineAsync(message);
+        }
+        catch (ObjectDisposedException)
+        {
+            Console.WriteLine("Writer: Pipe closed.");
+            return;
+        }
+    }
+    
+    static async Task MediaPropertiesWriterLoop(NamedPipeServerStream client, CancellationToken token)
+    {
+        try
+        {
+            var writer = new StreamWriter(client) { AutoFlush = true };
+
+            while (!token.IsCancellationRequested)
+            {
+                while (mediaPropertiesQueue.TryDequeue(out var props))
+                {
+                    var mediaData = new MediaPropertiesSerializableDataGenerator(props,mediaControl.CurrentSession.SourceAppUserModelId);
+                    await DeserializeAnyAndSent(mediaData, writer);
+                }
+
+                await Task.Delay(500, token);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[WriterLoop error] " + ex);
+        }
+    }
+    
+    static async Task PlaybackInfoWriterLoop(NamedPipeServerStream client, CancellationToken token)
+    {
+        try
+        {
+            var writer = new StreamWriter(client) { AutoFlush = true };
+
+            while (!token.IsCancellationRequested)
+            {
+                while (playbackQueue.TryDequeue(out var props))
+                {
+                    var mediaData = new PlayBackInfoSerializableDataGenerator(props);
+                    await DeserializeAnyAndSent(mediaData, writer);
+                }
+                await Task.Delay(500, token);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[WriterLoop error] " + ex);
+        }
+    }
+    
+    static async Task TimelinePropertiesWriterLoop(NamedPipeServerStream client, CancellationToken token)
+    {
+        try
+        {
+            var writer = new StreamWriter(client) { AutoFlush = true };
+
+            while (!token.IsCancellationRequested)
+            {
+                while (timelinePropertiesQueue.TryDequeue(out var props))
+                {
+                    var mediaData = new TimelinePropertiesSerializableDataGenerator(props);
+                    await DeserializeAnyAndSent(mediaData, writer);
+                }
+
+                await Task.Delay(500, token);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("[WriterLoop error] " + ex);
+        }
+    }
+    
+    
     static async Task WriterLoop(NamedPipeClientStream client, CancellationToken token)
     {
         try
@@ -71,7 +194,7 @@ class Program
                     message = message.Replace("\r", "");
                     message = message.Replace("\n", "");
 
-                   Console.WriteLine("Sending... ");
+                    Console.WriteLine("Sending... ");
 
                     try
                     {
@@ -93,7 +216,7 @@ class Program
         }
     }
 
-    static async Task ReaderLoop(NamedPipeClientStream client, CancellationTokenSource cancelSource)
+    static async Task ReaderLoop(NamedPipeServerStream client, CancellationTokenSource cancelSource)
     {
         try
         {
