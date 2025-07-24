@@ -7,9 +7,9 @@ using MediaServer;
 class Program
 {
     private static MediaControlCore mediaControl;
-    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertiesQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties>();
-    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionPlaybackInfo> playbackQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionPlaybackInfo>();
-    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionTimelineProperties> timelinePropertiesQueue = new ConcurrentQueue<GlobalSystemMediaTransportControlsSessionTimelineProperties>();
+    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionMediaProperties> mediaPropertiesQueue = new ();
+    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionPlaybackInfo> playbackQueue = new ();
+    private static ConcurrentQueue<GlobalSystemMediaTransportControlsSessionTimelineProperties> timelinePropertiesQueue = new ();
 
     static async Task Main(string[] arg)
     {

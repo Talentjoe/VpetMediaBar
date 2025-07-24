@@ -18,14 +18,23 @@ class Program
         var cts = new CancellationTokenSource();
         server.OnMediaInfoReceived += (mediaInfo) =>
         {
-            if (mediaInfo == null)
-                return;
-
             Console.WriteLine($"Title: {mediaInfo.Title}");
             Console.WriteLine($"Artist: {mediaInfo.Artist}");
             Console.WriteLine($"Album: {mediaInfo.AlbumTitle}");
            // Console.WriteLine($"Thumbnail Base64: {mediaInfo.ThumbnailBase64}");
         };
+        server.OnPlaybackInfoReceived += (playBackInfo) =>
+        {
+            Console.WriteLine($"PlaybackStatus: {playBackInfo.PlaybackStatus}");
+            Console.WriteLine($"AutoRepeatMode: {playBackInfo.IsShuffleActive}");
+        };
+        server.OnTimelinePropertiesReceived += (mediaInfo) =>
+        {
+            Console.WriteLine($"EndTime: {mediaInfo.EndTime}");
+            Console.WriteLine($"StartTime: {mediaInfo.StartTime}");
+            Console.WriteLine($"Position: {mediaInfo.Position}");
+        };
+        
         server.StartListeningAsync();
         
 

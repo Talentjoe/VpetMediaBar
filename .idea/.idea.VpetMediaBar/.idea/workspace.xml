@@ -10,15 +10,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DataInterface/TimelinePropertiesSerializableData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MediaServer/TimelinePropertiesSerializableDataGenerator.cs" afterDir="false" />
+    <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="Refactor MediaClient to improve pipe handling and add asynchronous listening for media properties, playback info, and timeline properties">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MediaClient/MediaClient.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/MediaServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaServer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pre_test/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/pre_test/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,23 +56,33 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/a6/8e111a11/PlaybackInfoChangedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/a8/a86884ea/GlobalSystemMediaTransportControlsSessionPlaybackC.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/f8/78beaa6b/GlobalSystemMediaTransportControlsSessionMediaProp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/89e2fa23ab0143908c89b1901498628cc90920/f7/f5567541/IEquatable`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9c28f6cc96bc4035afb7a82a20f3b1ce28908/62/922b444b/PipeTransmissionMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/aa46ede081bf45839f9a84e7acce77ab559f0/73/c582b71f/Main.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e703623710cc408eaac0f2c6feb0a00c81230/b6/d3455283/IWinRTObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/106ab35d796ed232414d7669a5935c4527413d95a912e21126dbc838816f4/FrameworkElement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b9c21859667430bcd9174b03ca255d28c597b6c1e5bfe2baed8fb70bae7/DispatcherObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2c8e7ca976f350cba9836d5565dac56b11e0b56656fa786460eb1395857a6fa/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36f346b6c0454bc8a6afa7aed38119fe5bbffcc983298d9bfa4dbd5f49461f/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3f464b8f13f78261c91edd1d441d19e5773d14e251bdd05cd9cb9ee861a/NamedPipeClientStream.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4bda76b5cc453e1edf5d5c754c4a8215edbd3d3e4f80706dcf4f52a4f68979/EventRoute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/528231ff9f911f33068aaa888c96c7cc92cabbf0bc1f31386d66e14174ecae/Grid.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6a802af2346a87e430fb66291f320aa22871259d47c2bc928a59f14b42aa34/StreamReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/78f054621e88155634b915298399256b3d57f9e23c489f734f9df555be060/NamedPipeClientStream.Windows.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7db16fd646825e69fd070ec98242df6e9f15a6a223fd244152e43ec399d7/IMainWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ac32f819d6853e0a6eda168c52b7f38eef9ae75936fb85d96a15c39d115245/Dispatcher.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a77b231cea33ff338c41dc7869d6c493d4dae137ff51e342173efa61d933/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/acc3e6e5f85e7174c16f6fd86bfc988df4815a736791e6f3d736ed79b8436e/CancellationTokenSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d0db11e55b76dc7f234163f6cee32b297b8ddb591fb0b5cbad1b46ed17343e18/Window.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d5de270e5a674388b5c30d7f3bd5ee54eba26160c816b541648dc8546c164/StreamWriter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientTest/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DataInterface/MediaPropertiesSerializableData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DataInterface/PlayBackInfoSerializableData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Coding/VpetMediaBar/MediaClient/MediaClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Coding/VpetMediaBar/MediaServer/PlayBackInfoSerializableDataGenerator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Coding/VpetMediaBar/MediaServer/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Coding/VpetMediaBar/pre_test/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pre_test/obj/Release/net8.0-windows/pre_test.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -111,7 +117,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Coding/VpetMediaBar/DataInterface/DataInterface.csproj",
+    "last_opened_file_path": "C:/Users/lenovo/Desktop/RM_API-main/C#/win_x86_base_csharp/win_x86_base_csharp/RM-SDK-windows-x86-csharp.sln",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -121,7 +127,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.MediaServer">
+  <component name="RunManager" selected=".NET Project.pre_test">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -238,7 +244,12 @@
       <workItem from="1751466585842" duration="611000" />
       <workItem from="1751539248491" duration="6514000" />
       <workItem from="1751555105982" duration="1000" />
-      <workItem from="1751599941379" duration="476000" />
+      <workItem from="1751599941379" duration="630000" />
+      <workItem from="1751601003743" duration="1330000" />
+      <workItem from="1751937494132" duration="32000" />
+      <workItem from="1752024481073" duration="56000" />
+      <workItem from="1752238289099" duration="37000" />
+      <workItem from="1753330197248" duration="11901000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -336,7 +347,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751545128168</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add TimelinePropertiesSerializableData and refactor MediaClient to use Newtonsoft.Json for serialization">
+      <option name="closed" value="true" />
+      <created>1751600452312</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1751600452312</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Refactor MediaClient to improve pipe handling and add asynchronous listening for media properties, playback info, and timeline properties">
+      <option name="closed" value="true" />
+      <created>1753353307063</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1753353307063</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,23 +396,25 @@
     <MESSAGE value="fix typo" />
     <MESSAGE value="Refactor MediaClient to start server asynchronously and update media properties handling" />
     <MESSAGE value="working on other info trans" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on other info trans" />
+    <MESSAGE value="Add TimelinePropertiesSerializableData and refactor MediaClient to use Newtonsoft.Json for serialization" />
+    <MESSAGE value="Refactor MediaClient to improve pipe handling and add asynchronous listening for media properties, playback info, and timeline properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor MediaClient to improve pipe handling and add asynchronous listening for media properties, playback info, and timeline properties" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MediaClient/MediaClient.cs</url>
-          <line>64</line>
+          <line>108</line>
           <properties documentPath="D:\Coding\VpetMediaBar\MediaClient\MediaClient.cs" containingFunctionPresentation="Method 'StartListeningAsync'">
             <startOffsets>
-              <option value="2181" />
+              <option value="4811" />
             </startOffsets>
             <endOffsets>
-              <option value="2240" />
+              <option value="4883" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

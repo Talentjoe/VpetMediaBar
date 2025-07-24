@@ -8,9 +8,9 @@ public class MediaControlCore
 {
     private GlobalSystemMediaTransportControlsSessionManager _transportControl;
     public GlobalSystemMediaTransportControlsSession CurrentSession;
-    public Action<GlobalSystemMediaTransportControlsSessionMediaProperties> MediaPropertiesChanged;
-    public Action<GlobalSystemMediaTransportControlsSessionPlaybackInfo> PlaybackInfoChanged;
-    public Action<GlobalSystemMediaTransportControlsSessionTimelineProperties> TimelinePropertiesChanged;
+    public event Action<GlobalSystemMediaTransportControlsSessionMediaProperties> MediaPropertiesChanged;
+    public event Action<GlobalSystemMediaTransportControlsSessionPlaybackInfo> PlaybackInfoChanged;
+    public event Action<GlobalSystemMediaTransportControlsSessionTimelineProperties> TimelinePropertiesChanged;
     
 
     public GlobalSystemMediaTransportControlsSessionMediaProperties GetCurrentMediaProperties()
