@@ -63,10 +63,13 @@ class Program
 
             var initProps = mediaControl.GetCurrentMediaProperties();
             mediaPropertiesQueue.Enqueue(initProps);
-            var initPlaybackInfo = mediaControl.CurrentSession.GetPlaybackInfo();
-            playbackQueue.Enqueue(initPlaybackInfo);
-            var initTimelineProps = mediaControl.CurrentSession.GetTimelineProperties();
-            timelinePropertiesQueue.Enqueue(initTimelineProps);
+            if (mediaControl.CurrentSession != null)
+            {
+                var initPlaybackInfo = mediaControl.CurrentSession.GetPlaybackInfo();
+                playbackQueue.Enqueue(initPlaybackInfo);
+                var initTimelineProps = mediaControl.CurrentSession.GetTimelineProperties();
+                timelinePropertiesQueue.Enqueue(initTimelineProps);
+            }
             
 
             await Task.WhenAny(controlStreamTask);

@@ -12,7 +12,19 @@
   <component name="ChangeListManager">
     <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/MediaControlCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/info.lps" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/info.lps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +55,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/29/3003a484/GlobalSystemMediaTransportControlsSessionPlaybackI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/44/a67ba733/MediaPlaybackAutoRepeatMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7654be7fea7742d7a23a3da30ca2300717b9a20/6d/bfda989a/_EventSource_global__Windows_Foundation_TypedEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -93,35 +106,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.ClientTest.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.MediaServer.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.pre_test.executor&quot;: &quot;Run&quot;,
-    &quot;Attach to Process.19284:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.34356:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.34652:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.38168:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.38688:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.39172:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.39404:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.4708:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.47300:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;Attach to Process.48524:VPet-Simulator.Windows.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/Desktop/RM_API-main/C#/win_x86_base_csharp/win_x86_base_csharp/RM-SDK-windows-x86-csharp.sln&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Console&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.ClientTest.executor": "Run",
+    ".NET Project.MediaServer.executor": "Debug",
+    ".NET Project.pre_test.executor": "Run",
+    "Attach to Process.19284:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.34356:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.34652:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.3488:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.35380:MediaServer.executor": "Debug",
+    "Attach to Process.38168:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.38688:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.39172:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.39404:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.4708:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.47300:VPet-Simulator.Windows.executor": "Debug",
+    "Attach to Process.48524:VPet-Simulator.Windows.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/lenovo/Desktop/RM_API-main/C#/win_x86_base_csharp/win_x86_base_csharp/RM-SDK-windows-x86-csharp.sln",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Console",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Project.MediaServer">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CidrLocalAttachDebugger.recentlyUsed">
+      <recent name="com.jetbrains.rider.cpp.debugger.RiderCppLLDBDriverConfiguration" />
+    </key>
+  </component>
+  <component name="RunManager" selected=".NET Project.MediaClient">
     <configuration name="ClientTest" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -246,6 +266,10 @@
       <workItem from="1753330197248" duration="12326000" />
       <workItem from="1753365160611" duration="1418000" />
       <workItem from="1753757366051" duration="27000" />
+      <workItem from="1757041819922" duration="445000" />
+      <workItem from="1757042505945" duration="1839000" />
+      <workItem from="1757045043409" duration="8000" />
+      <workItem from="1757045372700" duration="2778000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -367,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753363334569</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update when current session changed">
+      <option name="closed" value="true" />
+      <created>1757041879533</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1757041879533</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,23 +435,50 @@
     <MESSAGE value="Add TimelinePropertiesSerializableData and refactor MediaClient to use Newtonsoft.Json for serialization" />
     <MESSAGE value="Refactor MediaClient to improve pipe handling and add asynchronous listening for media properties, playback info, and timeline properties" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="update when current session changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="update when current session changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MediaClient/MediaClient.cs</url>
-          <line>108</line>
+          <line>103</line>
           <properties documentPath="D:\Coding\VpetMediaBar\MediaClient\MediaClient.cs" containingFunctionPresentation="Method 'StartListeningAsync'">
             <startOffsets>
-              <option value="4811" />
+              <option value="4654" />
             </startOffsets>
             <endOffsets>
-              <option value="4883" />
+              <option value="4720" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="21" />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs</url>
+          <line>60</line>
+          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetMediaInfo'">
+            <startOffsets>
+              <option value="2074" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2096" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs</url>
+          <line>79</line>
+          <properties documentPath="D:\Coding\VpetMediaBar\VpetMediaBar\MediaBar.xaml.cs" containingFunctionPresentation="Method 'SetCover'">
+            <startOffsets>
+              <option value="2657" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2690" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
