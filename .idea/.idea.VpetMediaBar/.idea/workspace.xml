@@ -10,22 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VpetMediaBar/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/info.lps" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/info.lps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/MediaServer/MediaServer.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.dll" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/30002_MediaBar/plugin/VpetMediaBar.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MediaServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MediaServer/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e49476a2-06bb-4ef0-85a7-3a1842aa77c0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -269,7 +254,7 @@
       <workItem from="1757041819922" duration="445000" />
       <workItem from="1757042505945" duration="1839000" />
       <workItem from="1757045043409" duration="8000" />
-      <workItem from="1757045372700" duration="2778000" />
+      <workItem from="1757045372700" duration="3596000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with solution and configuration files">
       <option name="closed" value="true" />
@@ -399,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757041879533</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update version to 1 and add Newtonsoft.Json dependency in MediaClient">
+      <option name="closed" value="true" />
+      <created>1757053546595</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1757053546595</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,24 +429,12 @@
     <MESSAGE value="Refactor MediaClient to improve pipe handling and add asynchronous listening for media properties, playback info, and timeline properties" />
     <MESSAGE value="update" />
     <MESSAGE value="update when current session changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="update when current session changed" />
+    <MESSAGE value="Update version to 1 and add Newtonsoft.Json dependency in MediaClient" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update version to 1 and add Newtonsoft.Json dependency in MediaClient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MediaClient/MediaClient.cs</url>
-          <line>103</line>
-          <properties documentPath="D:\Coding\VpetMediaBar\MediaClient\MediaClient.cs" containingFunctionPresentation="Method 'StartListeningAsync'">
-            <startOffsets>
-              <option value="4654" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4720" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/VpetMediaBar/MediaBar.xaml.cs</url>
           <line>60</line>
