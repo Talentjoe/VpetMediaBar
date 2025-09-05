@@ -34,7 +34,7 @@ public class MediaControlCore
         _transportControl = await GlobalSystemMediaTransportControlsSessionManager.RequestAsync();
         if (_transportControl != null)
         {
-            _transportControl.SessionsChanged += UpdateSession;
+            _transportControl.CurrentSessionChanged += UpdateSession;
             var session = _transportControl.GetCurrentSession();
             CurrentSession = session;
             if (session == null)
@@ -96,7 +96,7 @@ public class MediaControlCore
         }
     }
     
-    private async void UpdateSession(GlobalSystemMediaTransportControlsSessionManager sender, SessionsChangedEventArgs e)
+    private void UpdateSession(GlobalSystemMediaTransportControlsSessionManager sender, CurrentSessionChangedEventArgs e)
     {
         var session = _transportControl.GetCurrentSession();
         if (session == null) return;
@@ -109,7 +109,7 @@ public class MediaControlCore
         session.TimelinePropertiesChanged += UpdateTimelinePropertiesSub;
         try
         {
-            var mediaProperties = await session.TryGetMediaPropertiesAsync();
+            var mediaProperties = session.TryGetMediaPropertiesAsync().GetAwaiter().GetResult();
             UpdateMediaProperty(mediaProperties);
             Console.WriteLine("session changed");
         }
